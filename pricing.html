@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plans — Northline Goods</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="/"><span class="mark">N</span> <span data-store>Northline Goods</span></a>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/catalog.html">Catalog</a>
+        <a href="/pricing.html" aria-current="page">Plans</a>
+        <a href="/how.html">How it runs</a>
+        <a href="/agents.html">Who does what</a>
+        <a href="/operate.html">Owner desk</a>
+      </nav>
+    </header>
+
+    <section class="section">
+      <p class="kicker">Paywall</p>
+      <h1>Pay for a lane. Not for a maze.</h1>
+      <p class="lead">Looking is free. A plan turns on a part of the store. Cancel in Stripe. The store never sees your card number.</p>
+      <p class="notice" data-missing-note>Checking payment links…</p>
+    </section>
+
+    <section class="section grid">
+      <article class="card">
+        <span class="tag">Starter</span>
+        <h2>Counter</h2>
+        <p class="price"><span data-price="starter">$29</span> <span>/ month</span></p>
+        <ul>
+          <li>One live product</li>
+          <li>Email receipt after payment</li>
+          <li>Weekly owner note</li>
+        </ul>
+        <a class="btn" data-buy="starter" href="/api/checkout?tier=starter">Pay for Counter</a>
+      </article>
+      <article class="card">
+        <span class="tag">Most stores</span>
+        <h2>Floor</h2>
+        <p class="price"><span data-price="growth">$99</span> <span>/ month</span></p>
+        <ul>
+          <li>Up to three products</li>
+          <li>Support desk replies</li>
+          <li>Cash snapshot each Monday</li>
+        </ul>
+        <a class="btn copper" data-buy="growth" href="/api/checkout?tier=growth">Pay for Floor</a>
+      </article>
+      <article class="card">
+        <span class="tag">Full floor</span>
+        <h2>House</h2>
+        <p class="price"><span data-price="house">$299</span> <span>/ month</span></p>
+        <ul>
+          <li>All public agent desks</li>
+          <li>Refunds under your cap</li>
+          <li>Emergency override stays with you</li>
+        </ul>
+        <a class="btn" data-buy="house" href="/api/checkout?tier=house">Pay for House</a>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>What stays locked until paid</h2>
+      <table>
+        <thead><tr><th>Action</th><th>Free</th><th>Paid plan</th></tr></thead>
+        <tbody>
+          <tr><td>Read the catalog and policies</td><td>Yes</td><td>Yes</td></tr>
+          <tr><td>Buy a digital good</td><td>No</td><td>Yes, after Stripe</td></tr>
+          <tr><td>Ask the support desk</td><td>Read only</td><td>Yes</td></tr>
+          <tr><td>Change prices or stop the store</td><td>No</td><td>Owner only</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>After payment you land on <a href="/success.html">the thank-you page</a>. Billing changes happen in Stripe, not in this page.</p>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

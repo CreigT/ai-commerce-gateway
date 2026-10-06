@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Owner desk — Northline Goods</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="/"><span class="mark">N</span> <span data-store>Northline Goods</span></a>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/catalog.html">Catalog</a>
+        <a href="/pricing.html">Plans</a>
+        <a href="/how.html">How it runs</a>
+        <a href="/agents.html">Who does what</a>
+        <a href="/operate.html" aria-current="page">Owner desk</a>
+      </nav>
+    </header>
+
+    <section class="section">
+      <p class="kicker">Legal owner only</p>
+      <h1>Set variables. Do not operate the store.</h1>
+      <p class="lead">Put these in Vercel → Settings → Environment Variables. Redeploy once. You do not edit the HTML.</p>
+      <p class="notice" data-missing-note>Checking payment links…</p>
+      <p>Public status: <strong data-status>Waiting for your variables.</strong></p>
+    </section>
+
+    <section class="section">
+      <h2>Variables</h2>
+      <table>
+        <thead><tr><th>Name</th><th>Example</th><th>What it changes</th></tr></thead>
+        <tbody>
+          <tr><td><code>STORE_NAME</code></td><td>Northline Goods</td><td>Name on every page</td></tr>
+          <tr><td><code>STORE_TAGLINE</code></td><td>A small store that runs itself.</td><td>Home sentence</td></tr>
+          <tr><td><code>SUPPORT_EMAIL</code></td><td>you@domain.com</td><td>Contact link</td></tr>
+          <tr><td><code>STATUS_NOTE</code></td><td>Open for orders.</td><td>Short public note</td></tr>
+          <tr><td><code>PRICE_STARTER</code></td><td>29</td><td>Counter price shown</td></tr>
+          <tr><td><code>PRICE_GROWTH</code></td><td>99</td><td>Floor price shown</td></tr>
+          <tr><td><code>PRICE_HOUSE</code></td><td>299</td><td>House price shown</td></tr>
+          <tr><td><code>STRIPE_LINK_STARTER</code></td><td>https://buy.stripe.com/...</td><td>Real Counter checkout</td></tr>
+          <tr><td><code>STRIPE_LINK_GROWTH</code></td><td>https://buy.stripe.com/...</td><td>Real Floor checkout</td></tr>
+          <tr><td><code>STRIPE_LINK_HOUSE</code></td><td>https://buy.stripe.com/...</td><td>Real House checkout</td></tr>
+          <tr><td><code>PRODUCT_1_NAME</code></td><td>Field Notes Pack</td><td>First catalog card</td></tr>
+          <tr><td><code>PRODUCT_1_PRICE</code></td><td>18</td><td>First price</td></tr>
+          <tr><td><code>PRODUCT_1_BLURB</code></td><td>A short digital guide.</td><td>First description</td></tr>
+          <tr><td><code>PRODUCT_1_LINK</code></td><td>https://buy.stripe.com/...</td><td>First buy button</td></tr>
+          <tr><td><code>PRODUCT_2_*</code> / <code>PRODUCT_3_*</code></td><td>same pattern</td><td>Second and third cards</td></tr>
+          <tr><td><code>OVERRIDE_TOKEN</code></td><td>a long random string</td><td>Secret for the stop button. Never put this in the page.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section two">
+      <form class="panel" id="override">
+        <h2>Emergency stop</h2>
+        <p class="muted">This does not delete the store. It writes a stop record and shows a closed note. Use it if a charge, law, or customer harm needs you.</p>
+        <label for="token">Override token</label>
+        <input id="token" name="token" type="password" autocomplete="off" placeholder="Matches OVERRIDE_TOKEN">
+        <label for="reason">Why you are stopping it</label>
+        <textarea id="reason" name="reason" rows="3" placeholder="Example: wrong price on the Floor plan"></textarea>
+        <div class="actions"><button class="btn copper" type="submit">Record emergency stop</button></div>
+        <p id="override-result" class="muted"></p>
+      </form>
+      <div class="panel">
+        <h2>Stripe, in four clicks</h2>
+        <ol>
+          <li>Stripe → Payment Links → New.</li>
+          <li>Make Counter, Floor, and House.</li>
+          <li>Paste each link into the matching variable.</li>
+          <li>Redeploy. The paywall buttons start charging.</li>
+        </ol>
+        <p class="muted">Success URL: your site + <code>/success.html</code></p>
+      </div>
+    </section>
+    <footer><p>Health check: <a href="/api/health">/api/health</a></p></footer>
+  </div>
+  <script src="/app.js"></script>
+  <script>
+    document.getElementById("override").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const result = document.getElementById("override-result");
+      result.textContent = "Sending…";
+      const res = await fetch("/api/override", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          token: document.getElementById("token").value,
+          reason: document.getElementById("reason").value
+        })
+      });
+      const data = await res.json();
+      result.textContent = data.message || data.error || "Done.";
+    });
+  </script>
+</body>
+</html>

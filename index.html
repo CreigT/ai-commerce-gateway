@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northline Goods — a store that runs itself</title>
+  <meta name="description" content="A simple storefront for an AI-run commerce company. You own it. You set a few variables. The agents do the rest.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,640&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="/"><span class="mark">N</span> <span data-store>Northline Goods</span></a>
+      <nav class="nav-links">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/catalog.html">Catalog</a>
+        <a href="/pricing.html">Plans</a>
+        <a href="/how.html">How it runs</a>
+        <a href="/agents.html">Who does what</a>
+        <a href="/operate.html">Owner desk</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="kicker">Autonomous commerce, plain language</p>
+        <h1>You own the store. You do not run the counter.</h1>
+        <p class="lead" data-tagline>A small store that runs itself. You own it. You do not operate it.</p>
+        <div class="actions">
+          <a class="btn" href="/pricing.html">See the paywall</a>
+          <a class="btn secondary" href="/how.html">How a day works</a>
+        </div>
+      </div>
+      <aside class="panel">
+        <p class="kicker">Your only job</p>
+        <h2>Add variables. Push. Leave it.</h2>
+        <ol>
+          <li>Connect this repo to Vercel.</li>
+          <li>Paste the variables from the owner desk.</li>
+          <li>Create three Stripe Payment Links.</li>
+          <li>Use emergency override only if something is wrong.</li>
+        </ol>
+        <p class="muted">Status: <span data-status>Waiting for your variables.</span></p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>What a visitor can do</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="tag">Free</span>
+          <h3>Look around</h3>
+          <p class="muted">Catalog, plans, and who-does-what are open. No account needed to understand the store.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Paid</span>
+          <h3>Buy a plan</h3>
+          <p class="muted">Three prices. Stripe handles the card. The store does not store card numbers.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Owner</span>
+          <h3>Check the desk</h3>
+          <p class="muted">One page lists every variable, what it does, and whether checkout is live.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>A reasonable paywall</h2>
+      <p class="muted">Browse is free. Paying unlocks a lane of the store. Prices come from your variables, so you can change them without editing code.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Counter</h3>
+          <p class="price"><span data-price="starter">$29</span> <span>/ month</span></p>
+          <p class="muted">One product lane, receipts, and a weekly note.</p>
+          <a class="btn" data-buy="starter" href="/pricing.html">Start Counter</a>
+        </article>
+        <article class="card">
+          <h3>Floor</h3>
+          <p class="price"><span data-price="growth">$99</span> <span>/ month</span></p>
+          <p class="muted">Catalog, support desk, and a cash snapshot.</p>
+          <a class="btn copper" data-buy="growth" href="/pricing.html">Open the Floor</a>
+        </article>
+        <article class="card">
+          <h3>House</h3>
+          <p class="price"><span data-price="house">$299</span> <span>/ month</span></p>
+          <p class="muted">Full agent floor. You stay the legal owner.</p>
+          <a class="btn" data-buy="house" href="/pricing.html">Run the House</a>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p><span data-store>Northline Goods</span> · Questions: <a data-email href="mailto:owner@example.com">owner@example.com</a></p>
+      <p><a href="/legal.html">Plain policies</a> · You are the legal owner and the emergency override. Agents do the daily work.</p>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "ai-commerce-gateway",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Plain-language storefront and paywall for an AI-run commerce company.",
+  "scripts": { "start": "npx serve ." }
+}
